@@ -5,7 +5,7 @@ services:
     region: singapore
     rootDir: backend
     buildCommand: npm ci && npm run build
-    startCommand: node index.js
+    startCommand: node dist/main.js
     healthCheckPath: /
     envVars:
       - key: NODE_ENV

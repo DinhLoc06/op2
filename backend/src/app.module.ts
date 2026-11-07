@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import 'pg';
 import { AppController } from './app.controller.js';
 import { AppService } from './app.service.js';
 import { TypeOrmModule } from '@nestjs/typeorm';

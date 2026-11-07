@@ -14,7 +14,11 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  const origins = (process.env.FRONTEND_ORIGIN ?? '')
+  const origins = (
+    process.env.FRONTEND_ORIGIN ??
+    process.env.CORS_ORIGINS ??
+    ''
+  )
     .split(',')
     .map((origin) => origin.trim())
     .filter(Boolean);

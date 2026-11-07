@@ -14,7 +14,7 @@ Tạo project Vercel từ repo, đặt Root Directory là `backend`, rồi thêm
 - `DATABASE_URL`: Neon connection string.
 - `DB_SYNCHRONIZE`: `false`.
 - `JWT_SECRET`: chuỗi ngẫu nhiên dài tối thiểu 32 ký tự.
-- `FRONTEND_ORIGIN`: domain production storefront, ví dụ `https://<frontend-project>.vercel.app`.
+- `FRONTEND_ORIGIN` (hoặc `CORS_ORIGINS`): domain production storefront, ví dụ `https://<frontend-project>.vercel.app`. Có thể khai báo nhiều origin, phân cách bằng dấu phẩy.
 
 `backend/vercel.json` đặt Function region ở Singapore (`sin1`) gần Neon.
 
