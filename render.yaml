@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: lab3-api
+    runtime: node
+    region: singapore
+    rootDir: backend
+    buildCommand: npm ci && npm run build
+    startCommand: node index.js
+    healthCheckPath: /
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: DB_SYNCHRONIZE
+        value: "false"
+      - key: DATABASE_URL
+        sync: false
+      - key: JWT_SECRET
+        generateValue: true
+      - key: FRONTEND_ORIGIN
+        value: https://${{ lab3-storefront.host }}
+
+  - type: web
+    name: lab3-storefront
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm ci && npm run build
+    staticPublishPath: dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://${{ lab3-api.host }}
